@@ -9,28 +9,28 @@ import (
 // It is assumed to be defined elsewhere in the code.
 
 // verifyAsterisk checks if all resources in the policy statements are "*".
-// It returns true if all resources are "*", false otherwise.
+// It returns false if all resources are "*", true otherwise.
 func verifyAsterisk(policy RolePolicy) bool {
 	if policy.PolicyDocument.Statement == nil {
-		return false
+		return true
 	}
 
 	if len(policy.PolicyDocument.Statement) == 0 {
-		return false
+		return true
 	}
 
 	for _, statement := range policy.PolicyDocument.Statement {
 		if statement.Resource != "*" {
-			return false
+			return true
 		}
 	}
 
-	return true
+	return false
 }
 
 // CheckAsterisk takes a bufio.Reader and attempts to decode the JSON input into a RolePolicy struct.
 // It then verifies if all resources in the policy statements are "*".
-// It returns true if all resources are "*", false otherwise.
+// It returns false if all resources are "*", true otherwise.
 func CheckAsterisk(JSONReader *bufio.Reader) bool {
 	rolePolicy, err := parseJSON(JSONReader)
 	if err != nil {

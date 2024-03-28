@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"log"
 	"os"
 )
 
@@ -26,9 +25,5 @@ func main() {
 
 	result := CheckAsterisk(reader)
 
-	if result {
-		log.Println("True")
-	} else {
-		log.Println("False")
-	}
+	fmt.Println(result)
 }

@@ -6,7 +6,7 @@ import (
 	"testing"
 )
 
-// TestCheckAsteriskCorrect tests the verifyAsterisk function with JSON files that should return true.
+// TestCheckAsteriskCorrect tests the verifyAsterisk function with JSON files that should return false.
 func TestCheckAsteriskCorrect(t *testing.T) {
 	correctFilenames := []string{"test/correct1.json", "test/correct2.json", "test/correct3.json"}
 
@@ -26,14 +26,14 @@ func TestCheckAsteriskCorrect(t *testing.T) {
 
 		result := verifyAsterisk(rolePolicy)
 
-		if !result {
+		if result {
 			t.Errorf("Expected true, got false")
 		}
 
 	}
 }
 
-// TestCheckAsteriskIncorrect tests the verifyAsterisk function with JSON files that should return false.
+// TestCheckAsteriskIncorrect tests the verifyAsterisk function with JSON files that should return true.
 func TestCheckAsteriskIncorrect(t *testing.T) {
 	incorrectFilenames := []string{"test/parsable_incorrect1.json", "test/parsable_incorrect2.json",
 		"test/parsable_incorrect3.json", "test/parsable_incorrect4.json", "test/parsable_incorrect5.json",
@@ -56,7 +56,7 @@ func TestCheckAsteriskIncorrect(t *testing.T) {
 
 		result := verifyAsterisk(rolePolicy)
 
-		if result {
+		if !result {
 			t.Errorf("Expected false, got true")
 		}
 	}
