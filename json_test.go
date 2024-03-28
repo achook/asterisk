@@ -6,6 +6,7 @@ import (
 	"testing"
 )
 
+// TestParseJSONCorrect tests the parseJSON function with JSON files that should be parsable.
 func TestParseJSONCorrect(t *testing.T) {
 	var correctFilename = []string{"test/correct1.json", "test/correct2.json", "test/parsable_incorrect1.json",
 		"test/duplicate_resource.json", "test/missing_resource.json", "test/missing_other_field.json",
@@ -27,8 +28,8 @@ func TestParseJSONCorrect(t *testing.T) {
 
 }
 
+// TestParseJSONIncorrect tests the parseJSON function with JSON files that should not be parsable.
 func TestParseJSONIncorrect(t *testing.T) {
-	// Parsable, valid JSON correct[N].json and parsable_incorrect[N].json located in test directory
 	var incorrectFilename = []string{"test/empty.json", "test/incorrect1.json", "test/incorrect2.json",
 		"test/incorrect3.json"}
 
@@ -44,5 +45,28 @@ func TestParseJSONIncorrect(t *testing.T) {
 		if err == nil {
 			t.Errorf("Expected error, got nil")
 		}
+	}
+}
+
+// TestCommandlineFilenameCorrect tests the getCommandLineFilename function with command line arguments that should be valid.
+func TestCommandlineFilenameCorrect(t *testing.T) {
+	os.Args = []string{"cmd", "filename", "filename2"}
+
+	filename, err := getCommandLineFilename()
+	if err != nil {
+		t.Errorf("Error getting filename: %s", err)
+	}
+	if filename != "filename" {
+		t.Errorf("Expected filename, got %s", filename)
+	}
+}
+
+// TestCommandlineFilenameIncorrect tests the getCommandLineFilename function with command line arguments that should be invalid.
+func TestCommandlineFilenameIncorrect(t *testing.T) {
+	os.Args = []string{"cmd"}
+
+	_, err := getCommandLineFilename()
+	if err == nil {
+		t.Errorf("Expected error, got nil")
 	}
 }
