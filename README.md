@@ -17,8 +17,16 @@
 
 ## How to run
 From the main directory, run the following command:
+### Windows
 ````bash
-go run *.go <json_file>
+go build -o asterisk.exe
+.\asterisk.exe <path_to_file>
+````
+
+### Linux / MacOS
+````bash
+go build -o asterisk
+./asterisk <path_to_file>
 ````
 
 ## How to test
