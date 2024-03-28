@@ -1,4 +1,4 @@
-package asterisk
+package main
 
 import (
 	"bufio"

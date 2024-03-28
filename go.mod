@@ -1,3 +1,3 @@
-module main
+module asterisk
 
 go 1.21

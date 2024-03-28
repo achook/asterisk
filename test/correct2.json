@@ -1,14 +1,15 @@
 {
-  "PolicyName": "root",
+  "PolicyName": "no_name",
   "PolicyDocument": {
-    "Version": "2012-10-17",
+    "Version": "2023-10-17",
     "Statement": [
       {
         "Sid": "IamListAccess",
         "Effect": "Allow",
         "Action": [
           "iam:ListRoles",
-          "iam:ListUsers"
+          "iam:ListUsers",
+          "iam:ListGroups"
         ],
         "Resource": "*"
       }

@@ -1,4 +1,4 @@
-package asterisk
+package main
 
 type RolePolicy struct {
 	PolicyName     string `json:"PolicyName"`

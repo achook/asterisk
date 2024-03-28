@@ -9,8 +9,7 @@
         "Action": [
           "iam:ListRoles",
           "iam:ListUsers"
-        ],
-        "Resource": "*"
+        ]
       }
     ]
   }

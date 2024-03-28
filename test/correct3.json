@@ -1,0 +1,28 @@
+{
+  "PolicyName": "no_name",
+  "PolicyDocument": {
+    "Version": "2023-10-17",
+    "Statement": [
+      {
+        "Sid": "IamListAccess",
+        "Effect": "Allow",
+        "Action": [
+          "iam:ListRoles",
+          "iam:ListUsers",
+          "iam:ListGroups"
+        ],
+        "Resource": "*"
+      },
+      {
+        "Sid": "IamListAccess",
+        "Effect": "Allow",
+        "Action": [
+          "iam:ListRoles",
+          "iam:ListUsers",
+          "iam:ListGroups"
+        ],
+        "Resource": "*"
+      }
+    ]
+  }
+}
